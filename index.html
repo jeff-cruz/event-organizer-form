@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Organizer Application</title>
+  <script src="https://kit.fontawesome.com/5b4baab3e6.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Event Application</h1>
+      <i class="edit-icon fa-solid fa-pencil fa-lg"></i>
+    </div>
+    <form>
+        <ul class="form-container" id="questions-list">
+          <li class="app-inputs" id="business">
+            <div class="input-container">
+              <label for="business-name">Business Name</label>
+              <input id="business-name" type="text" class="app-question"></input>
+            </div>
+            <div class="checkbox-container">
+              <label for="business-checkbox">
+              <input id="business-checkbox" class="input-checkbox hidden" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+          <li class="app-inputs">
+            <div class="input-container">
+              <label for="email">Email</label>
+              <input id="email" type="text" class="app-question"></input>
+            </div>
+            <div class="checkbox-container">
+              <label for="email-checkbox">
+              <input id="email-checkbox" class="input-checkbox hidden" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+          <li class="app-inputs">
+            <div class="input-container">
+              <label for="phone-number">Phone Number</label>
+              <input id="phone-number" type="text" class="app-question"></input>
+            </div>
+            <div class="checkbox-container">
+              <label for="phone-checkbox">
+                <input id="phone-checkbox" class="input-checkbox hidden" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+          <li class="app-inputs">
+            <div class="input-container">
+              <label for="contact-name">Contact Name</label>
+              <input id="contact-name" type="text" class="app-question"></input>
+            </div>
+            <div class="checkbox-container">
+              <label for="contact-checkbox">
+              <input id="contact-checkbox" class="input-checkbox hidden" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+          <li class="app-inputs">
+            <div class="input-container">
+              <label for="event-details">Event Details</label>
+              <textarea id="event-details" rows="5" cols="65"></textarea>
+            </div>
+            <div class="checkbox-container">
+              <label for="details-checkbox">
+                <input id="details-checkbox" class="input-checkbox hidden" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+        </ul>
+        <div class="btn-container">
+          <button class="submit-btn">Submit Application</button>
+          <button class="add-question-btn hidden">Add Question</button>
+          <button class="save-btn hidden">Save</button>
+        </div>
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="public/main.js"></script>
+</body>
+</html>
