@@ -152,7 +152,7 @@ button:active, .edit-icon:active{
 }
 
 .modal {
-  display: none;
+  display: block;
   position: fixed;
   z-index: 10;
   left: 0;
@@ -172,6 +172,7 @@ button:active, .edit-icon:active{
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
+  height: 800px;
 }
 
 .new-input-container {
@@ -203,4 +204,13 @@ button:active, .edit-icon:active{
   display: flex;
   justify-content: end;
   cursor: pointer;
+}
+
+.new-input-btn-container {
+  position: fixed;
+  height: 4rem;
+  width: 100%;
+  right: 0;
+  bottom: 50px;
+  text-align: center;
 }
