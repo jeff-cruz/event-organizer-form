@@ -256,10 +256,10 @@ $(document).ready(function () {
 
 
   $(".submit-btn").click(function () {
-    event.preventDefault();
-    $("form#main-input-form :input[type=text]").each(function () {
-      var input = $(this).val();
-      console.log(input);
-    });
+    // event.preventDefault();
+    // $("form#main-input-form :input[type=text]").each(function () {
+    //   var input = $(this).val();
+    //   console.log(input);
+    // });
   });
 });

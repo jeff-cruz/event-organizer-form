@@ -18,14 +18,14 @@
         <i class="edit-icon fa-solid fa-pencil fa-lg"></i>
       </div>
 
-      <form id="main-input-form">
+      <form id="main-input-form" action="/public/apply-form.php" method="post">
         <ul class="form-container" id="questions-list">
 
           <!-- FIRST STANDARD QUESTION -->
           <li class="app-inputs" id="business-question">
             <div class="input-container">
               <label for="business-name">Business Name</label>
-              <input id="business-name" type="text" class="app-question" required></input>
+              <input id="business-name" type="text" class="app-question" name="business" required></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="business-checkbox">
@@ -38,7 +38,7 @@
           <li class="app-inputs" id="contact-question">
             <div class="input-container">
               <label for="contact-name">Contact Name</label>
-              <input id="contact-name" type="text" class="app-question" required></input>
+              <input id="contact-name" type="text" class="app-question" name="contact" required></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="contact-checkbox">
@@ -51,7 +51,7 @@
           <li class="app-inputs" id="email-question">
             <div class="input-container">
               <label for="email">Email</label>
-              <input id="email" type="text" class="app-question" required></input>
+              <input id="email" type="text" class="app-question" name="email "required></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="email-checkbox">
@@ -64,7 +64,7 @@
           <li class="app-inputs" id="phone-question">
             <div class="input-container">
               <label for="phone-number">Phone Number</label>
-              <input id="phone-number" type="text" class="app-question" required></input>
+              <input id="phone-number" type="text" class="app-question" name="phone" required></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="phone-checkbox">
@@ -77,7 +77,7 @@
           <li class="app-inputs" id="details-question">
             <div class="input-container">
               <label for="event-details">Event Details</label>
-              <textarea id="event-details" class="inter" required></textarea>
+              <textarea id="event-details" class="inter" name="details" required></textarea>
             </div>
             <div class="checkbox-container hidden">
               <label for="details-checkbox">
