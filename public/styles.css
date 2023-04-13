@@ -72,7 +72,7 @@ li .checkbox-container {
   top: 25px;
 }
 
-.form-container > .app-inputs {
+.app-inputs {
   margin: .5rem;
 }
 
@@ -80,7 +80,7 @@ li .checkbox-container {
   margin-left: .25rem;
 }
 
-.app-inputs .app-question {
+.app-question {
   width: 100%;
   border-radius: 5px;
   height: 2rem;
@@ -96,9 +96,10 @@ li .checkbox-container {
 .app-inputs textarea {
   resize: none;
   border-radius: 10px;
-  border: 1px solid black;
   background-color: #F6F6F6;
   border: 1px solid #CFD4D9;
+  width: 100%;
+  height: 100px;
 }
 
 .app-inputs textarea:focus {
@@ -152,7 +153,7 @@ button:active, .edit-icon:active{
 }
 
 .modal {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 10;
   left: 0;
@@ -211,6 +212,54 @@ button:active, .edit-icon:active{
   height: 4rem;
   width: 100%;
   right: 0;
-  bottom: 50px;
   text-align: center;
+}
+
+.edit-input-trash-btn {
+  position: relative;
+  bottom: 0px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.new-input-trash-btn {
+  position: relative;
+  bottom: 20px;
+  left: 10px;
+  cursor: pointer;
+}
+
+
+.options-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.add-input-btn {
+  background-color: #85586F;
+  color: white;
+  height: 20px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-left: 1rem;
+}
+
+#option-list li {
+ list-style: none;
+  display: flex;
+  width: 100%;
+}
+
+.select-dropdown {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  height: 2rem;
+  padding: .5rem;
+  border: 1px solid #CFD4D9;
+  background-color: #F6F6F6;
+  margin: 0;
 }

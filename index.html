@@ -14,61 +14,61 @@
 
       <!-- TITLE -->
       <div class="header">
-        <h1 class="title">Edit Event Application</h1>
-        <i class="edit-icon fa-solid fa-pencil fa-lg hidden"></i>
+        <h1 class="title">Event Application</h1>
+        <i class="edit-icon fa-solid fa-pencil fa-lg"></i>
       </div>
 
-      <form>
+      <form id="main-input-form">
         <ul class="form-container" id="questions-list">
 
           <!-- FIRST STANDARD QUESTION -->
           <li class="app-inputs" id="business-question">
             <div class="input-container">
               <label for="business-name">Business Name</label>
-              <input id="business-name" type="text" class="app-question"></input>
+              <input id="business-name" type="text" class="app-question" required></input>
             </div>
-            <div class="checkbox-container">
+            <div class="checkbox-container hidden">
               <label for="business-checkbox">
               <input id="business-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
               </label>
             </div>
           </li>
 
-          <!-- SECOND STANDARD QUESTION -->
+           <!-- SECOND STANDARD QUESTION -->
+          <li class="app-inputs" id="contact-question">
+            <div class="input-container">
+              <label for="contact-name">Contact Name</label>
+              <input id="contact-name" type="text" class="app-question" required></input>
+            </div>
+            <div class="checkbox-container hidden">
+              <label for="contact-checkbox">
+              <input id="contact-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+
+          <!-- THIRD STANDARD QUESTION -->
           <li class="app-inputs" id="email-question">
             <div class="input-container">
               <label for="email">Email</label>
-              <input id="email" type="text" class="app-question"></input>
+              <input id="email" type="text" class="app-question" required></input>
             </div>
-            <div class="checkbox-container">
+            <div class="checkbox-container hidden">
               <label for="email-checkbox">
               <input id="email-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
               </label>
             </div>
           </li>
 
-          <!-- THIRD STANDARD QUESTION -->
+          <!-- FOURTH STANDARD QUESTION -->
           <li class="app-inputs" id="phone-question">
             <div class="input-container">
               <label for="phone-number">Phone Number</label>
-              <input id="phone-number" type="text" class="app-question"></input>
+              <input id="phone-number" type="text" class="app-question" required></input>
             </div>
-            <div class="checkbox-container">
+            <div class="checkbox-container hidden">
               <label for="phone-checkbox">
                 <input id="phone-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
-              </label>
-            </div>
-          </li>
-
-          <!-- FOURTH STANDARD QUESTION -->
-          <li class="app-inputs" id="contact-question">
-            <div class="input-container">
-              <label for="contact-name">Contact Name</label>
-              <input id="contact-name" type="text" class="app-question"></input>
-            </div>
-            <div class="checkbox-container">
-              <label for="contact-checkbox">
-              <input id="contact-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
               </label>
             </div>
           </li>
@@ -77,21 +77,22 @@
           <li class="app-inputs" id="details-question">
             <div class="input-container">
               <label for="event-details">Event Details</label>
-              <textarea id="event-details" rows="5" cols="65"></textarea>
+              <textarea id="event-details" class="inter" required></textarea>
             </div>
-            <div class="checkbox-container">
+            <div class="checkbox-container hidden">
               <label for="details-checkbox">
                 <input id="details-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
               </label>
             </div>
           </li>
+
         </ul>
 
         <!-- FORM BUTTONS -->
         <div class="btn-container">
-          <button class="submit-btn hidden">Submit Application</button>
-          <button class="add-question-btn">Add Question</button>
-          <button class="save-btn">Save</button>
+          <button class="submit-btn">Submit Application</button>
+          <button class="add-question-btn hidden">Add Question</button>
+          <button class="save-btn hidden" id="save-all-inputs">Save</button>
         </div>
       </form>
     </div>
@@ -104,28 +105,37 @@
           <h2 class="title" id="new-input-title">Add Question</h2>
         </div>
         <div>
-          <form>
+          <form id="new-input-form">
             <div class="new-input-container">
               <div>
-                <label for="new-question" class="new-question-label">Question</label>
-                <input id="new-question" type="text" class="new-question"></input>
+                <label for="new-question" class="new-question-label">Input Label</label>
+                <input id="new-question" type="text" class="new-question" required></input>
               </div>
             </div>
             <div class="new-input-container">
               <label for="new-input" class="new-input-label">Input Field Type</label>
               <select id="new-input" class="new-input inter">
                 <option value="text">Text</option>
+                <option value="textarea">Text Area</option>
                 <option value="number">Number</option>
+                <option value="select">Select</option>
                 <option value="checkbox">Checkbox</option>
                 <option value="radio">Radio</option>
               </select>
             </div>
 
-            <div class="new-input-container">
+            <div class="options-container hidden">
+              <div class="options-header">
+                <span>Options (Max 5)</span>
+                <button class="add-input-btn">Add Input</button>
+              </div>
+              <ul id="option-list">
 
+              </ul>
             </div>
+
             <div class="new-input-btn-container">
-              <button class="save-btn">Save</button>
+              <button class="save-btn" id="save-new-input">Save Input</button>
             </div>
           </form>
         </div>
