@@ -25,7 +25,7 @@
           <li class="app-inputs" id="business-question">
             <div class="input-container">
               <label for="business-name">Business Name</label>
-              <input id="business-name" type="text" class="app-question"></input>
+              <input id="business-name" type="text" class="app-question" required></input>
             </div>
             <div class="checkbox-container">
               <label for="business-checkbox">
@@ -38,7 +38,7 @@
           <li class="app-inputs" id="email-question">
             <div class="input-container">
               <label for="email">Email</label>
-              <input id="email" type="text" class="app-question"></input>
+              <input id="email" type="text" class="app-question" required></input>
             </div>
             <div class="checkbox-container">
               <label for="email-checkbox">
@@ -51,7 +51,7 @@
           <li class="app-inputs" id="phone-question">
             <div class="input-container">
               <label for="phone-number">Phone Number</label>
-              <input id="phone-number" type="text" class="app-question"></input>
+              <input id="phone-number" type="text" class="app-question" required></input>
             </div>
             <div class="checkbox-container">
               <label for="phone-checkbox">
@@ -64,7 +64,7 @@
           <li class="app-inputs" id="contact-question">
             <div class="input-container">
               <label for="contact-name">Contact Name</label>
-              <input id="contact-name" type="text" class="app-question"></input>
+              <input id="contact-name" type="text" class="app-question" required></input>
             </div>
             <div class="checkbox-container">
               <label for="contact-checkbox">
@@ -77,7 +77,7 @@
           <li class="app-inputs" id="details-question">
             <div class="input-container">
               <label for="event-details">Event Details</label>
-              <textarea id="event-details" rows="5" cols="65"></textarea>
+              <textarea id="event-details" required></textarea>
             </div>
             <div class="checkbox-container">
               <label for="details-checkbox">
@@ -87,11 +87,12 @@
           </li>
         </ul>
 
+
         <!-- FORM BUTTONS -->
         <div class="btn-container">
           <button class="submit-btn hidden">Submit Application</button>
           <button class="add-question-btn">Add Question</button>
-          <button class="save-btn">Save</button>
+          <button class="save-btn" id="save-all-inputs">Save</button>
         </div>
       </form>
     </div>
@@ -104,28 +105,34 @@
           <h2 class="title" id="new-input-title">Add Question</h2>
         </div>
         <div>
-          <form>
+          <form id="new-input-form">
             <div class="new-input-container">
               <div>
-                <label for="new-question" class="new-question-label">Question</label>
-                <input id="new-question" type="text" class="new-question"></input>
+                <label for="new-question" class="new-question-label">Input Label</label>
+                <input id="new-question" type="text" class="new-question" required></input>
               </div>
             </div>
             <div class="new-input-container">
               <label for="new-input" class="new-input-label">Input Field Type</label>
               <select id="new-input" class="new-input inter">
                 <option value="text">Text</option>
+                <option value="textarea">Text Area</option>
                 <option value="number">Number</option>
+                <option value="select">Select</option>
                 <option value="checkbox">Checkbox</option>
                 <option value="radio">Radio</option>
               </select>
+
+              <div class="options-container hidden">
+                <h3>Options</h3>
+                <ul id="option-list">
+
+                </ul>
+              </div>
             </div>
 
-            <div class="new-input-container">
-
-            </div>
             <div class="new-input-btn-container">
-              <button class="save-btn">Save</button>
+              <button class="save-btn" id="save-new-input">Save Input</button>
             </div>
           </form>
         </div>
