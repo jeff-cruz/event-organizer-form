@@ -11,9 +11,9 @@
   $details = $_POST["details"];
 
   $host = "localhost";
-  $dbname = "form_db";
   $username = "root";
   $password = "";
+  $dbname = "form_db";
 
   $conn = mysqli_connect($host, $username, $password, $dbname);
 
