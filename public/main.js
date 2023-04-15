@@ -1,6 +1,21 @@
+// ON FORM SUBMISSION,
+// CREATE VALIDATION FOR EACH INPUT SUBMITTED (ISSET)
+
 $(document).ready(function () {
   let inputIdCounter = 0;
   let optionIdCounter = 0;
+
+  $("#applicants-btn").click(function() {
+    window.location.assign('./public/applications.php');
+  });
+
+  $("#event-organizers-btn").click(function() {
+    window.location.assign('./public/organizers.php');
+  });
+
+  $(".back-icon").click(function () {
+    window.location.assign('/');
+  });
 
   // main form page
   $("#save-all-inputs").click(function (event) {
@@ -44,8 +59,17 @@ $(document).ready(function () {
     }
   });
 
-  // edit form page
+
   $(".edit-icon").click(function () {
+    $(".guard-modal").css("display", "block");
+  });
+
+  $(".cancel-btn").click(function () {
+    $(".guard-modal").css("display", "none");
+  });
+
+  // edit form page
+  $(".proceed-btn").click(function () {
     $(".title").text("Edit Event Application"); // edit form title
     $(".edit-icon").addClass("hidden"); // hide edit icon
     $(".submit-btn").addClass("hidden"); // hide submit button
@@ -53,6 +77,7 @@ $(document).ready(function () {
     $(".save-btn").removeClass("hidden"); // show save button
     $(".checkbox-container").removeClass("hidden"); // show checkboxes
     $(".app-question").removeClass("hidden"); // show all standard questions
+    $(".guard-modal").css("display", "none");
 
     // reveal all standard questions in edit-form
     $("#business-question").show();
@@ -70,14 +95,14 @@ $(document).ready(function () {
   // clicking the add question button in edit form
   $(".add-question-btn").click(function () {
     event.preventDefault();
-    $(".modal").css("display", "block");
+    $(".edit-modal").css("display", "block");
     $(".title").text("Add Question");
   });
 
   // clicking the X-icon in edit form
   $(".x-icon").click(function () {
     $("#new-input-form").trigger("reset");
-    $(".modal").css("display", "none");
+    $(".edit-modal").css("display", "none");
     $(".title").text("Edit Event Application");
     $("#option-list").empty();
     $(".options-container").addClass("hidden");
@@ -115,19 +140,6 @@ $(document).ready(function () {
             <div class="input-container">
               <label for='${newInputType}_${newId}'>${newLabel}</label>
               <input id='${newInputType}_${newId}' type=${newInputType} class="app-question" required></input>
-            </div>
-            <div class='checkbox-container'>
-              <i class='fa fa-trash edit-input-trash-btn' aria-hidden='true' id=${newId}></i>
-            </div>
-          </li>`);
-      }
-
-      if(newInputType === "phone") {
-        $("#questions-list").append(`
-          <li class="app-inputs" id=${newId}>
-            <div class="input-container">
-              <label for='${newInputType}_${newId}'>${newLabel}</label>
-              <input id='${newInputType}_${newId}' type=${newInputType} class="app-question" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX" required></input>
             </div>
             <div class='checkbox-container'>
               <i class='fa fa-trash edit-input-trash-btn' aria-hidden='true' id=${newId}></i>
@@ -233,6 +245,19 @@ $(document).ready(function () {
          }
       }
 
+        if (newInputType === "phone") {
+          $("#questions-list").append(`
+      <li class="app-inputs" id=${newId}>
+        <div class="input-container">
+          <label for='${newInputType}_${newId}'>${newLabel}</label>
+          <input id='${newInputType}_${newId}' type=${newInputType} class="app-question" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX" required></input>
+        </div>
+        <div class='checkbox-container'>
+          <i class='fa fa-trash edit-input-trash-btn' aria-hidden='true' id=${newId}></i>
+        </div>
+      </li>`);
+        }
+
     $(".modal").css("display", "none");
     $("#option-list").empty();
     $(".options-container").addClass("hidden");
@@ -288,11 +313,9 @@ $(document).ready(function () {
   });
 
 
-  $(".submit-btn").click(function () {
-    // event.preventDefault();
-    // $("form#main-input-form :input[type=text]").each(function () {
-    //   var input = $(this).val();
-    //   console.log(input);
-    // });
+  $(".submit-btn").click(function (event) {
+    event.preventDefault();
+    $("#main-input-form").submit();
   });
+
 });

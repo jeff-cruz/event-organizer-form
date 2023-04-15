@@ -7,23 +7,24 @@
     <title>Event Organizer Application</title>
     <script src="https://kit.fontawesome.com/5b4baab3e6.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="public/styles.css">
+    <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <div class="container">
       <div class="header">
+        <i class="back-icon fa-sharp fa-solid fa-arrow-left fa-lg"></i>
         <h1 class="title">Event Application</h1>
         <i class="edit-icon fa-solid fa-pencil fa-lg"></i>
       </div>
 
-      <form id="main-input-form" action="/public/apply-form.php" method="post">
+      <form id="main-input-form" action="./apply-form.php" method="post">
         <ul class="form-container" id="questions-list">
 
           <!-- first standard question -->
           <li class="app-inputs" id="business-question">
             <div class="input-container">
               <label for="business-name">Business Name</label>
-              <input id="business-name" type="text" class="app-question" name="business" required></input>
+              <input id="business-name" type="text" class="app-question" name="business" ></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="business-checkbox">
@@ -36,7 +37,7 @@
           <li class="app-inputs" id="contact-question">
             <div class="input-container">
               <label for="contact-name">Contact Name</label>
-              <input id="contact-name" type="text" class="app-question" name="contact" required></input>
+              <input id="contact-name" type="text" class="app-question" name="contact" ></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="contact-checkbox">
@@ -49,7 +50,7 @@
           <li class="app-inputs" id="email-question">
             <div class="input-container">
               <label for="email">Email Address</label>
-              <input id="email" type="text" class="app-question" name="email" required></input>
+              <input id="email" type="text" class="app-question" name="email" ></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="email-checkbox">
@@ -62,7 +63,7 @@
           <li class="app-inputs" id="phone-question">
             <div class="input-container">
               <label for="phone-number">Phone Number</label>
-              <input id="phone-number" type="tel" class="app-question" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX" required></input>
+              <input id="phone-number" type="tel" class="app-question" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX" ></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="phone-checkbox">
@@ -75,7 +76,7 @@
           <li class="app-inputs" id="address-question">
             <div class="input-container">
               <label for="address">Address</label>
-             <input id="address" type="text" class="app-question" name="address" required></input>
+             <input id="address" type="text" class="app-question" name="address" ></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="address-checkbox">
@@ -88,7 +89,7 @@
           <li class="app-inputs" id="city-question">
             <div class="input-container">
               <label for="city">City</label>
-             <input id="city" type="text" class="app-question" name="city" required></input>
+             <input id="city" type="text" class="app-question" name="city" ></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="city-checkbox">
@@ -101,7 +102,7 @@
           <li class="app-inputs" id="state-question">
             <div class="input-container">
               <label for="state">State</label>
-             <input id="state" type="text" class="app-question" name="state" required></input>
+             <input id="state" type="text" class="app-question" name="state" ></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="state-checkbox">
@@ -114,7 +115,7 @@
           <li class="app-inputs" id="zip-question">
             <div class="input-container">
               <label for="zip">Zip Code</label>
-             <input id="zip" type="text" class="app-question" name="zip" required></input>
+             <input id="zip" type="text" class="app-question" name="zip" ></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="zip-checkbox">
@@ -160,9 +161,24 @@
       </form>
     </div>
 
-    <!-- MODAL -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
+    <!-- guard modal -->
+    <div id="modal" class="guard-modal">
+      <div class="guard-modal-content">
+        <div class="header">
+          <h2 class="guard-title">Edit Form for Event Organizers Only</h2>
+        </div>
+        <div>
+          <div class="guard-btn-container">
+            <button class="proceed-btn">Proceed</button>
+            <button class="cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+    <!-- edit modal -->
+    <div id="modal" class="edit-modal">
+      <div class="edit-modal-content">
         <i class="x-icon fa-solid fa-x fa-lg"></i>
         <div class="header">
           <h2 class="title" id="new-input-title">Add Question</h2>
@@ -207,6 +223,6 @@
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="public/main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
