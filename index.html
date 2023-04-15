@@ -11,21 +11,19 @@
   </head>
   <body>
     <div class="container">
-
-      <!-- TITLE -->
       <div class="header">
         <h1 class="title">Event Application</h1>
         <i class="edit-icon fa-solid fa-pencil fa-lg"></i>
       </div>
 
-      <form id="main-input-form">
+      <form id="main-input-form" action="/public/apply-form.php" method="post">
         <ul class="form-container" id="questions-list">
 
-          <!-- FIRST STANDARD QUESTION -->
+          <!-- first standard question -->
           <li class="app-inputs" id="business-question">
             <div class="input-container">
               <label for="business-name">Business Name</label>
-              <input id="business-name" type="text" class="app-question" required></input>
+              <input id="business-name" type="text" class="app-question" name="business" required></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="business-checkbox">
@@ -34,11 +32,11 @@
             </div>
           </li>
 
-           <!-- SECOND STANDARD QUESTION -->
+           <!-- second standard question -->
           <li class="app-inputs" id="contact-question">
             <div class="input-container">
               <label for="contact-name">Contact Name</label>
-              <input id="contact-name" type="text" class="app-question" required></input>
+              <input id="contact-name" type="text" class="app-question" name="contact" required></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="contact-checkbox">
@@ -47,11 +45,11 @@
             </div>
           </li>
 
-          <!-- THIRD STANDARD QUESTION -->
+          <!-- third standard question -->
           <li class="app-inputs" id="email-question">
             <div class="input-container">
-              <label for="email">Email</label>
-              <input id="email" type="text" class="app-question" required></input>
+              <label for="email">Email Address</label>
+              <input id="email" type="text" class="app-question" name="email" required></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="email-checkbox">
@@ -60,11 +58,11 @@
             </div>
           </li>
 
-          <!-- FOURTH STANDARD QUESTION -->
+          <!-- fourth standard question -->
           <li class="app-inputs" id="phone-question">
             <div class="input-container">
               <label for="phone-number">Phone Number</label>
-              <input id="phone-number" type="text" class="app-question" required></input>
+              <input id="phone-number" type="tel" class="app-question" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX" required></input>
             </div>
             <div class="checkbox-container hidden">
               <label for="phone-checkbox">
@@ -73,11 +71,76 @@
             </div>
           </li>
 
-          <!-- FIFTH STANDARD QUESTION -->
+          <!-- fifth standard question -->
+          <li class="app-inputs" id="address-question">
+            <div class="input-container">
+              <label for="address">Address</label>
+             <input id="address" type="text" class="app-question" name="address" required></input>
+            </div>
+            <div class="checkbox-container hidden">
+              <label for="address-checkbox">
+                <input id="address-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+
+          <!-- sixth standard question -->
+          <li class="app-inputs" id="city-question">
+            <div class="input-container">
+              <label for="city">City</label>
+             <input id="city" type="text" class="app-question" name="city" required></input>
+            </div>
+            <div class="checkbox-container hidden">
+              <label for="city-checkbox">
+                <input id="city-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+
+          <!-- seventh standard question -->
+          <li class="app-inputs" id="state-question">
+            <div class="input-container">
+              <label for="state">State</label>
+             <input id="state" type="text" class="app-question" name="state" required></input>
+            </div>
+            <div class="checkbox-container hidden">
+              <label for="state-checkbox">
+                <input id="state-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+
+          <!-- eigth standard question -->
+          <li class="app-inputs" id="zip-question">
+            <div class="input-container">
+              <label for="zip">Zip Code</label>
+             <input id="zip" type="text" class="app-question" name="zip" required></input>
+            </div>
+            <div class="checkbox-container hidden">
+              <label for="zip-checkbox">
+                <input id="zip-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+
+          <!-- ninth standard question -->
+          <li class="app-inputs" id="website-question">
+            <div class="input-container">
+              <label for="website">Website (Optional)</label>
+             <input id="website" type="url" class="app-question" name="website"></input>
+            </div>
+            <div class="checkbox-container hidden">
+              <label for="website-checkbox">
+                <input id="website-checkbox" class="input-checkbox" type="checkbox" checked="checked"> </input>
+              </label>
+            </div>
+          </li>
+
+          <!-- tenth standard question -->
           <li class="app-inputs" id="details-question">
             <div class="input-container">
-              <label for="event-details">Event Details</label>
-              <textarea id="event-details" class="inter" required></textarea>
+              <label for="event-details">Event Details (Optional)</label>
+              <textarea id="event-details" class="inter" name="details"></textarea>
             </div>
             <div class="checkbox-container hidden">
               <label for="details-checkbox">
@@ -116,8 +179,10 @@
               <label for="new-input" class="new-input-label">Input Field Type</label>
               <select id="new-input" class="new-input inter">
                 <option value="text">Text</option>
-                <option value="textarea">Text Area</option>
                 <option value="number">Number</option>
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+                <option value="textarea">Text Area</option>
                 <option value="select">Select</option>
                 <option value="checkbox">Checkbox</option>
                 <option value="radio">Radio</option>

@@ -27,6 +27,18 @@ $(document).ready(function () {
     if ($("#contact-checkbox:checked").val() !== "on") {
       $("#contact-question").hide();
     }
+    if ($("#address-checkbox:checked").val() !== "on") {
+      $("#address-question").hide();
+    }
+    if ($("#city-checkbox:checked").val() !== "on") {
+      $("#city-question").hide();
+    }
+    if ($("#state-checkbox:checked").val() !== "on") {
+      $("#state-question").hide();
+    }
+    if ($("#zip-checkbox:checked").val() !== "on") {
+      $("#zip-question").hide();
+    }
     if ($("#details-checkbox:checked").val() !== "on") {
       $("#details-question").hide();
     }
@@ -47,6 +59,10 @@ $(document).ready(function () {
     $("#email-question").show();
     $("#phone-question").show();
     $("#contact-question").show();
+    $("#address-question").show();
+    $("#city-question").show();
+    $("#state-question").show();
+    $("#zip-question").show();
     $("#details-question").show();
     $(".trash-icon").show();
   });
@@ -89,12 +105,29 @@ $(document).ready(function () {
     let newId = inputIdCounter++;
 
     if (newLabel !== undefined && newLabel !== "") {
-      if ((newInputType === "text") | (newInputType === "number")) {
+      if (
+        newInputType === "text" ||
+        newInputType === "number" ||
+        newInputType === "email"
+      ) {
         $("#questions-list").append(`
           <li class="app-inputs" id=${newId}>
             <div class="input-container">
               <label for='${newInputType}_${newId}'>${newLabel}</label>
               <input id='${newInputType}_${newId}' type=${newInputType} class="app-question" required></input>
+            </div>
+            <div class='checkbox-container'>
+              <i class='fa fa-trash edit-input-trash-btn' aria-hidden='true' id=${newId}></i>
+            </div>
+          </li>`);
+      }
+
+      if(newInputType === "phone") {
+        $("#questions-list").append(`
+          <li class="app-inputs" id=${newId}>
+            <div class="input-container">
+              <label for='${newInputType}_${newId}'>${newLabel}</label>
+              <input id='${newInputType}_${newId}' type=${newInputType} class="app-question" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX" required></input>
             </div>
             <div class='checkbox-container'>
               <i class='fa fa-trash edit-input-trash-btn' aria-hidden='true' id=${newId}></i>
@@ -256,10 +289,10 @@ $(document).ready(function () {
 
 
   $(".submit-btn").click(function () {
-    event.preventDefault();
-    $("form#main-input-form :input[type=text]").each(function () {
-      var input = $(this).val();
-      console.log(input);
-    });
+    // event.preventDefault();
+    // $("form#main-input-form :input[type=text]").each(function () {
+    //   var input = $(this).val();
+    //   console.log(input);
+    // });
   });
 });
