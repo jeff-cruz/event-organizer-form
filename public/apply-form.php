@@ -13,15 +13,15 @@
   $host = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "form_db";
+  $dbname = "event_applications";
 
   $conn = mysqli_connect($host, $username, $password, $dbname);
 
-  if (mysqli_connect_errno()) {
-    die("Connection failed: " . mysqli_connect_error());
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "INSERT INTO form (business, contact, email, phone, address, city, state, zip, website, details)
+  $sql = "INSERT INTO applications (business, contact, email, phone, address, city, state, zip, website, details)
           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
   $stmt = mysqli_stmt_init($conn);
@@ -30,17 +30,17 @@
   }
 
   mysqli_stmt_bind_param($stmt, "sssssssiss",
-                          $business,
-                          $contact,
-                          $email,
-                          $phone,
-                          $address,
-                          $city,
-                          $state,
-                          $zip,
-                          $website,
-                          $details);
+                        $business,
+                        $contact,
+                        $email,
+                        $phone,
+                        $address,
+                        $city,
+                        $state,
+                        $zip,
+                        $website,
+                        $details);
 
   mysqli_stmt_execute($stmt);
 
-  echo "Data saved.";
+  header('Location: thankyou.php');
