@@ -17,7 +17,7 @@
         <i class="edit-icon fa-solid fa-pencil fa-lg"></i>
       </div>
 
-      <form id="main-input-form" action="./apply-form.php" method="post">
+      <form id="main-input-form" action="./create.php" method="post">
         <ul class="form-container" id="questions-list">
 
           <!-- first standard question -->
@@ -152,7 +152,7 @@
 
         </ul>
 
-        <!-- FORM BUTTONS -->
+        <!-- form buttons -->
         <div class="btn-container">
           <button class="submit-btn">Submit Application</button>
           <button class="add-question-btn hidden">Add Question</button>

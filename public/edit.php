@@ -35,29 +35,7 @@
       $zip = $row["zip"];
       $website = $row["website"];
       $details = $row["details"];
-  } else {
-    $business = $_POST["business"];
-    $contact = $_POST["contact"];
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-    $address = $_POST["address"];
-    $city = $_POST["city"];
-    $state = $_POST["state"];
-    $zip = $_POST["zip"];
-    $website = $_POST["website"];
-    $details = $_POST["details"];
-
-      do {
-        $sql =  "UPDATE applications " .
-                "SET business = '$business', contact = '$contact ', email = '$email', phone = '$phone', address = '$address', city = `$city`, state = '$state', zip = '$zip', website = '$website', details = '$details' " .
-                "WHERE id = $id";
-
-        $result = $conn->query($sql); // WHY ARENT YOU UPDATING PLS
-
-        header("location: ./applications.php");
-      } while (false);
-  }
-
+    }
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +56,7 @@
         <h1 class="title">Edit Event Application</h1>
       </div>
 
-      <form id="main-input-form" method="post">
+      <form id="edit-input-form" action="./update.php" method="post">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <ul class="form-container" id="questions-list">
           <!-- first standard question -->
@@ -215,7 +193,7 @@
 
         <!-- FORM BUTTONS -->
         <div class="btn-container">
-          <button class="submit-btn" id="save-edit-btn">Save</button>
+          <button class="submit-btn" id="save-edit-btn">Save Edit</button>
         </div>
       </form>
     </div>

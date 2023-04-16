@@ -431,3 +431,60 @@ button:active, .edit-icon:active{
 .table-container .table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
+.delete-modal {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.delete-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  z-index: 20;
+  padding: 15px;
+  border: 1px solid #888;
+  height: 170px;
+  width: 400px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.delete-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.delete-title {
+  text-align: center;
+  margin-bottom: .5rem;
+}
+
+.proceed-delete-btn {
+  background-color: #85586F;
+  color: white;
+  height: 30px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-left: 1rem;
+}
+
+.cancel-delete-btn {
+  background-color: #D0B8A8;
+  color: white;
+  height: 30px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  margin: 0 auto;
+}
