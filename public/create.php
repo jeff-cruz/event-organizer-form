@@ -44,3 +44,4 @@
   mysqli_stmt_execute($stmt);
 
   header('Location: thankyou.php');
+?>

@@ -9,7 +9,7 @@ $(document).ready(function () {
   });
 
   $("#event-organizers-btn").click(function() {
-    window.location.assign('./public/organizers.php');
+    window.location.assign('./public/apply.php');
   });
 
   $(".back-icon").click(function () {
@@ -318,7 +318,6 @@ $(document).ready(function () {
       }
   });
 
-
   $(".submit-btn").click(function (event) {
     event.preventDefault();
     $("#main-input-form").submit();
@@ -328,8 +327,9 @@ $(document).ready(function () {
     window.location.assign('/event-organizer-form');
   });
 
-  $("#save-edit-btn").click(function () {
-    $("#main-input-form").submit();
+  $("#save-edit-btn").click(function (event) {
+    event.preventDefault();
+    $("#edit-input-form").submit();
   });
 
 });
