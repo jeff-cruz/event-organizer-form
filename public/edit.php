@@ -1,3 +1,65 @@
+<?php
+  $host = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "event_applications";
+
+  $conn = mysqli_connect($host, $username, $password, $dbname);
+
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  if($_SERVER['REQUEST_METHOD'] == "GET") {
+    if(!isset($_GET["id"]) ) {
+        header("location: ../index.php");
+        exit;
+      }
+
+      $id = $_GET["id"];
+      $sql = "SELECT * FROM applications WHERE id=$id";
+      $result = $conn->query($sql);
+      $row = $result->fetch_assoc();
+
+      if(!$row) {
+        header("location: ../index.php");
+        exit;
+      }
+      $business = $row["business"];
+      $contact = $row["contact"];
+      $email = $row["email"];
+      $phone = $row["phone"];
+      $address = $row["address"];
+      $city = $row["city"];
+      $state = $row["state"];
+      $zip = $row["zip"];
+      $website = $row["website"];
+      $details = $row["details"];
+  } else {
+    $business = $_POST["business"];
+    $contact = $_POST["contact"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $address = $_POST["address"];
+    $city = $_POST["city"];
+    $state = $_POST["state"];
+    $zip = $_POST["zip"];
+    $website = $_POST["website"];
+    $details = $_POST["details"];
+
+      do {
+        $sql =  "UPDATE applications " .
+                "SET business = '$business', contact = '$contact ', email = '$email', phone = '$phone', address = '$address', city = `$city`, state = '$state', zip = '$zip', website = '$website', details = '$details' " .
+                "WHERE id = $id";
+
+        $result = $conn->query($sql); // WHY ARENT YOU UPDATING PLS
+
+        header("location: ./applications.php");
+      } while (false);
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,14 +74,13 @@
   <body>
     <div class="container">
       <div class="header">
-        <i class="back-icon fa-sharp fa-solid fa-arrow-left fa-lg"></i>
-        <h1 class="title">Event Application</h1>
-        <i class="edit-icon fa-solid fa-pencil fa-lg"></i>
+        <i class="back-to-application-btn fa-sharp fa-solid fa-arrow-left fa-lg"></i>
+        <h1 class="title">Edit Event Application</h1>
       </div>
 
-      <form id="main-input-form" action="./apply-form.php" method="post">
+      <form id="main-input-form" method="post">
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
         <ul class="form-container" id="questions-list">
-
           <!-- first standard question -->
           <li class="app-inputs" id="business-question">
             <div class="input-container">
@@ -141,7 +202,7 @@
           <li class="app-inputs" id="details-question">
             <div class="input-container">
               <label for="event-details">Event Details (Optional)</label>
-              <textarea id="event-details" class="inter" name="details" value="<?php echo $details; ?>"></textarea>
+              <input type="text" id="event-details" class="app-question" name="details" value="<?php echo $details; ?>"></textarea>
             </div>
             <div class="checkbox-container hidden">
               <label for="details-checkbox">
@@ -154,70 +215,9 @@
 
         <!-- FORM BUTTONS -->
         <div class="btn-container">
-          <button class="submit-btn">Submit Application</button>
-          <button class="add-question-btn hidden">Add Question</button>
-          <button class="save-btn hidden" id="save-all-inputs">Save</button>
+          <button class="submit-btn" id="save-edit-btn">Save</button>
         </div>
       </form>
-    </div>
-
-    <!-- guard modal -->
-    <div id="modal" class="guard-modal">
-      <div class="guard-modal-content">
-        <div class="header">
-          <h2 class="guard-title">Edit Form for Event Organizers Only</h2>
-        </div>
-        <div>
-          <div class="guard-btn-container">
-            <button class="proceed-btn">Proceed</button>
-            <button class="cancel-btn">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- edit modal -->
-    <div id="modal" class="edit-modal">
-      <div class="edit-modal-content">
-        <i class="x-icon fa-solid fa-x fa-lg"></i>
-        <div class="header">
-          <h2 class="title" id="new-input-title">Add Question</h2>
-        </div>
-        <div>
-          <form id="new-input-form">
-            <div class="new-input-container">
-              <div>
-                <label for="new-question" class="new-question-label">Input Label</label>
-                <input id="new-question" type="text" class="new-question" required></input>
-              </div>
-            </div>
-            <div class="new-input-container">
-              <label for="new-input" class="new-input-label">Input Field Type</label>
-              <select id="new-input" class="new-input inter">
-                <option value="text">Text</option>
-                <option value="number">Number</option>
-                <option value="phone">Phone</option>
-                <option value="email">Email</option>
-                <option value="textarea">Text Area</option>
-                <option value="select">Select</option>
-                <option value="checkbox">Checkbox</option>
-                <option value="radio">Radio</option>
-              </select>
-            </div>
-            <div class="options-container hidden">
-              <div class="options-header">
-                <span>Options (Max 5)</span>
-                <button class="add-input-btn">Add Input</button>
-              </div>
-              <ul id="option-list">
-              </ul>
-            </div>
-            <div class="new-input-btn-container">
-              <button class="save-btn" id="save-new-input">Save Input</button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

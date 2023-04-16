@@ -1,6 +1,5 @@
 // ON FORM SUBMISSION,
 // CREATE VALIDATION FOR EACH INPUT SUBMITTED (ISSET)
-
 $(document).ready(function () {
   let inputIdCounter = 0;
   let optionIdCounter = 0;
@@ -14,7 +13,11 @@ $(document).ready(function () {
   });
 
   $(".back-icon").click(function () {
-    window.location.assign('/');
+    window.location.assign('/event-organizer-form');
+  });
+
+  $(".back-to-application-btn").click(function() {
+    window.location.assign('./applications.php');
   });
 
   // main form page
@@ -53,6 +56,9 @@ $(document).ready(function () {
     }
     if ($("#zip-checkbox:checked").val() !== "on") {
       $("#zip-question").hide();
+    }
+    if ($("#website-checkbox:checked").val() !== "on") {
+      $("#website-question").hide();
     }
     if ($("#details-checkbox:checked").val() !== "on") {
       $("#details-question").hide();
@@ -258,7 +264,7 @@ $(document).ready(function () {
       </li>`);
         }
 
-    $(".modal").css("display", "none");
+    $(".edit-modal").css("display", "none");
     $("#option-list").empty();
     $(".options-container").addClass("hidden");
     $("#new-input-form").trigger("reset");
@@ -315,6 +321,14 @@ $(document).ready(function () {
 
   $(".submit-btn").click(function (event) {
     event.preventDefault();
+    $("#main-input-form").submit();
+  });
+
+  $(".redirect-x-icon").click(function() {
+    window.location.assign('/event-organizer-form');
+  });
+
+  $("#save-edit-btn").click(function () {
     $("#main-input-form").submit();
   });
 
