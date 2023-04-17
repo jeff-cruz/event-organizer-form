@@ -15,6 +15,8 @@
         <i class="back-icon fa-sharp fa-solid fa-arrow-left fa-lg"></i>
         <h1 class="title">Applications</h1>
       </div>
+
+      <!-- list of submitted applications -->
       <div class='table-container'>
         <table class='table'>
           <thead>
@@ -74,6 +76,7 @@
         </table>
       </div>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="./main.js"></script>
   </body>

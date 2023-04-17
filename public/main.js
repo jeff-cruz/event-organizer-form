@@ -1,26 +1,28 @@
-// ON FORM SUBMISSION,
-// CREATE VALIDATION FOR EACH INPUT SUBMITTED (ISSET)
 $(document).ready(function () {
   let inputIdCounter = 0;
   let optionIdCounter = 0;
 
+  // view list of applications page
   $("#applicants-btn").click(function() {
     window.location.assign('./public/applications.php');
   });
 
+  // view application page
   $("#event-organizers-btn").click(function() {
     window.location.assign('./public/apply.php');
   });
 
+  // back to main page
   $(".back-icon").click(function () {
     window.location.assign('/event-organizer-form');
   });
 
+  // back to application page
   $(".back-to-application-btn").click(function() {
     window.location.assign('./applications.php');
   });
 
-  // main form page
+  // editing application form
   $("#save-all-inputs").click(function (event) {
     event.preventDefault();
 
@@ -65,7 +67,7 @@ $(document).ready(function () {
     }
   });
 
-
+  // guard modal buttons
   $(".edit-icon").click(function () {
     $(".guard-modal").css("display", "block");
   });
@@ -318,18 +320,20 @@ $(document).ready(function () {
       }
   });
 
+  // submit application form
   $(".submit-btn").click(function (event) {
     event.preventDefault();
     $("#main-input-form").submit();
   });
 
+  // go back to main page
   $(".redirect-x-icon").click(function() {
     window.location.assign('/event-organizer-form');
   });
 
+  // save edited application
   $("#save-edit-btn").click(function (event) {
     event.preventDefault();
     $("#edit-input-form").submit();
   });
-
 });

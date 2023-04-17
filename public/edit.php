@@ -56,9 +56,11 @@
         <h1 class="title">Edit Event Application</h1>
       </div>
 
+      <!-- edit submitted applications -->
       <form id="edit-input-form" action="./update.php" method="post">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <ul class="form-container" id="questions-list">
+
           <!-- first standard question -->
           <li class="app-inputs" id="business-question">
             <div class="input-container">
@@ -191,7 +193,7 @@
 
         </ul>
 
-        <!-- FORM BUTTONS -->
+        <!-- form buttons -->
         <div class="btn-container">
           <button class="submit-btn" id="save-edit-btn">Save Edit</button>
         </div>
